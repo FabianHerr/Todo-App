@@ -27,6 +27,12 @@ class todo{
     setCheckedToTrue(){
         this.checked = true;
     }
+
+    equals(task){
+        if(this.title == task.title && this.dueDate == task.dueDate)
+            return true;
+        return false;
+    }
 }
 
 export default todo;
