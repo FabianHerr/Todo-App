@@ -1,5 +1,5 @@
 import Project from './projects';
-import projects from './projectManager';
+import manager from './projectManager';
 
 // Functionality, adding new project to side bar
 function addNewProject(){
@@ -17,7 +17,7 @@ function addNewProject(){
 
     if (projectName == ''){projectName = 'New Project'}
 
-    projects.addProject(projectName);
+    manager.addProject(projectName);
 }
 
 export default addNewProject();
