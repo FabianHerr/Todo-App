@@ -1,5 +1,8 @@
+import Project from './projects';
+import projects from './projectManager';
+
 // Functionality, adding new project to side bar
-function getProjectName(){
+function addNewProject(){
     const adderDiv = document.getElementById("Adder-form");
     const form = document.createElement('form');
     const input = document.createElement('input');
@@ -14,7 +17,7 @@ function getProjectName(){
 
     if (projectName == ''){projectName = 'New Project'}
 
-    return projectName;
+    projects.addProject(projectName);
 }
 
-export default getProjectName();
+export default addNewProject();

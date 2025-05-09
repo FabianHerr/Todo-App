@@ -1,11 +1,14 @@
 import todo from './todo';
 
-class project{
+class Project{
     list = [];
 
-    constructor(name,color){
+    constructor(name){
         this.name = name;
-        this.color = color;
+    }
+
+    getName(){
+        return this.name;
     }
 
     addTodo(newTodo){
@@ -20,10 +23,6 @@ class project{
         this.name = newName;
     }
 
-    setColor(newColor){
-        this.color = newColor;
-    }
-
 }
 
-export default project;
+export default Project;
