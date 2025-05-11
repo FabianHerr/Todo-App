@@ -1,9 +1,9 @@
 import Project from './projects';
-import manager from './projectManager';
+import Pmanager from './projectManager';
 
 // Functionality, adding new project to side bar
 function addNewProject(){
-    const adderDiv = document.getElementById("Adder-form");
+    const adderDiv = document.getElementById("PAdder-form");
     const form = document.createElement('form');
     const input = document.createElement('input');
     form.method = 'post';
@@ -16,7 +16,7 @@ function addNewProject(){
         e.preventDefault();
         let projectName = input.value;
         if (projectName === '') projectName = 'New Project';
-        manager.addProject(projectName);
+        Pmanager.addProject(projectName);
         form.reset();
     };
 }

@@ -5,19 +5,19 @@ class ProjectManager{
 
     addProject(name){
         const project = new Project(name);
-        projects.append(project);
+        this.projects.append(project);
     }
 
     removeProject(name){
-        projects = projects.filter(project => project.getName() != name);
+        this.projects = this.projects.filter(project => project.getName() != name);
     }
 
     getProjects(){
-        return projects;
+        return this.projects;
     }
 }
 
-const manager = new ProjectManager();
+const Pmanager = new ProjectManager();
 
 export default manager;
 

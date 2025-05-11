@@ -1,4 +1,4 @@
-class Todo{
+class ToDo{
 
     constructor(title, description, dueDate, priority){
         this.title = title;
@@ -6,6 +6,10 @@ class Todo{
         this.dueDate = dueDate;
         this.priority = priority;
         this.checked = false; 
+    }
+
+    getTitle(){
+        return this.title;
     }
 
     setTitleTo(newTitle){
@@ -35,4 +39,4 @@ class Todo{
     }
 }
 
-export default Todo;
+export default ToDo;
