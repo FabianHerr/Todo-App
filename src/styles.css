@@ -1,87 +1,108 @@
-/* Reset and Base */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
 
-body {
-  background-color: #fefefe;
-  color: #333;
-  padding-top: 70px; /* reserve space for fixed nav */
-}
+/* App Layout */
 
-/* Navigation Bar */
-nav {
-  position: fixed;
-  top: 0;
+html,body{
   width: 100%;
-  height: 70px;
-  background-color: #262626;
+  height: 100%;
+}
+body {
+  margin: 0px;
+  min-height: 100vh;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#content{
+  display: flex;
+  height: 100vh;
+}
+
+.sideBar {
+  width: 250px;
+  background-color: #003049;
   color: #fff;
+  padding: 20px;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 40px;
-  z-index: 1000;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  gap: 10px;
-}
-
-nav .logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #fcbf49;
-}
-
-nav .nav-buttons {
-  display: flex;
-  align-items: center;
+  flex-direction: column;
   gap: 15px;
+  flex: 1;
 }
 
-nav .nav-buttons button {
-  background: #fcbf49;
-  border: 2px solid #fcbf49;
-  color: #262626;
-  font-size: 1rem;
-  cursor: pointer;
-  font-weight: bold;
-  padding: 8px 16px;
-  border-radius: 20px;
-  transition: background-color 0.3s, transform 0.2s;
-}
-
-nav .nav-buttons button:hover {
-  background-color: #ffb347;
-  transform: translateY(-2px);
-}
-
-/* Content Section */
-section {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 30px 20px;
-}
-
-h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: #d62828;
-}
-
-h3 {
-  font-size: 1.3rem;
-  margin-top: 30px;
+.sideBar #ProjectAdder {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #fcbf49;
   color: #003049;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-/* Image Styling */
-img {
-  max-width: 100%;
-  height: auto;
+.sideBar #ProjectAdder:hover {
+  background-color: #ffb347;
+}
+
+.sideBar .project {
+  background-color: #d62828;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.sideBar .project:hover {
+  background-color: #b81d1d;
+}
+
+#mainSpace {
+  flex: 1;
+  background-color: #f8f9fa;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+#ProjectName {
+  font-size: 2rem;
+  color: #003049;
+  margin-bottom: 20px;
+}
+
+#ToDoAdder {
+  background-color: #fcbf49;
+  color: #003049;
+  padding: 10px;
+  width: fit-content;
   border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: background-color 0.3s;
+}
+
+#ToDoAdder:hover {
+  background-color: #ffb347;
+}
+
+.toDo {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+form input[type="text"],
+form input[type="date"] {
   display: block;
-  margin: 20px auto;
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }

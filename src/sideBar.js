@@ -9,7 +9,7 @@ function renderSideBar(){
     const allProjects = document.getElementById('allProjects');
     allProjects.innerHTML = '';
     Pmanager.getProjects().forEach(project => {
-        projectName = project.getName();
+        let projectName = project.getName();
         const div = document.createElement('div');
         div.id = projectName;
         div.className = 'project';

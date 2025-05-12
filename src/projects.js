@@ -12,7 +12,7 @@ class Project{
     }
 
     addTodo(newTodo){
-        this.list.append(newTodo);
+        this.list.push(newTodo);
     }
 
     deleteTodo(task){

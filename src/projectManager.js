@@ -1,12 +1,21 @@
 import Project from './projects';
 
 class ProjectManager{
+    allTodos = new Project('All');
     projects = [];
-    currentProject = null;
+    currentProject = this.allTodos;
+
+    addTodoToAll(todo){
+        this.allTodos.addTodo(todo);
+    }
+
+    getAllTodos(){
+        return this.allTodos;
+    }
 
     addProject(name){
         const project = new Project(name);
-        this.projects.append(project);
+        this.projects.push(project);
     }
 
     removeProject(name){
@@ -17,14 +26,14 @@ class ProjectManager{
         return this.projects;
     }
     getCurrentProject(){
-        return currentProject
+        return this.currentProject;
     }
     setCurrentProject(project){
-        currentProject = project; 
+        this.currentProject = project; 
     }
 }
 
 const Pmanager = new ProjectManager();
 
-export default manager;
+export default Pmanager;
 

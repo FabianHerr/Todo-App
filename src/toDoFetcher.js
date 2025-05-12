@@ -4,7 +4,7 @@ import Pmanager from './projectManager.js'
 
 // Functionality, adding new project to side bar
 function addNewToDo(){
-    project = Pmanager.getCurrentProject(); // get current project user is on.
+    let project = Pmanager.getCurrentProject(); // get current project user is on.
     const adderDiv = document.getElementById("TAdder-form");
     const form = document.createElement('form');
     const name = document.createElement('input');
@@ -30,10 +30,11 @@ function addNewToDo(){
         let todoDesc = desc.value;
         let todoDD = dueDate.value;
 
-        if (toDoName === '') toDoName = 'New Task';
-        const todo = new ToDo(todoName,todoDesc,todoDD);
-        form.reset();
+        if (todoName === '') todoName = 'New Task';
+        const todo = new ToDo(todoName, todoDesc, todoDD);
         project.addTodo(todo);
+        Pmanager.addTodoToAll(todo);
+        form.reset();  
     };
 }
 
