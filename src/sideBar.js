@@ -1,5 +1,8 @@
 import Project from "./projects";
 import Pmanager from "./projectManager";
+import renderMainSpace from "./mainSpace";
+
+
 
 // Side Bar functionality
 function renderSideBar(){
@@ -11,6 +14,10 @@ function renderSideBar(){
         div.id = projectName;
         div.className = 'project';
         div.textContent = projectName;
+        div.addEventListener('click', ()=>{
+            Pmanager.setCurrentProject(project);
+            renderMainSpace(project);
+        })
         allProjects.appendChild(div);
     });
 }

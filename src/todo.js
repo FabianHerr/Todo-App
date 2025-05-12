@@ -1,10 +1,9 @@
 class ToDo{
 
-    constructor(title, description, dueDate, priority){
+    constructor(title, description, dueDate){
         this.title = title;
         this.description = description;
         this.dueDate = dueDate;
-        this.priority = priority;
         this.checked = false; 
     }
 
@@ -22,10 +21,6 @@ class ToDo{
 
     setDueDateTo(newDueDate){
         this.dueDate = newDueDate;
-    }
-
-    setPriority(newPriority){
-        this.priority = newPriority;
     }
 
     setCheckedToTrue(){

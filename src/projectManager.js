@@ -2,6 +2,7 @@ import Project from './projects';
 
 class ProjectManager{
     projects = [];
+    currentProject = null;
 
     addProject(name){
         const project = new Project(name);
@@ -14,6 +15,12 @@ class ProjectManager{
 
     getProjects(){
         return this.projects;
+    }
+    getCurrentProject(){
+        return currentProject
+    }
+    setCurrentProject(project){
+        currentProject = project; 
     }
 }
 

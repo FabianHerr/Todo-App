@@ -1,5 +1,6 @@
 import Project from './projects';
 import Pmanager from './projectManager';
+import renderSideBar from './sideBar';
 
 // Functionality, adding new project to side bar
 function addNewProject(){
