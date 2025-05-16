@@ -84,6 +84,11 @@ body {
   transition: background-color 0.3s;
 }
 
+#ToDoAdder{
+  display: flex;
+  gap: 6px;
+}
+
 #ToDoAdder:hover {
   background-color: #ffb347;
 }
@@ -97,12 +102,12 @@ body {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-form input[type="text"],
-form input[type="date"] {
-  display: block;
+/* General style for all text inputs */
+input[type="text"] {
+  border: none;
+  background: transparent;
+  color: inherit;
+  font: inherit;
   width: 100%;
-  margin: 10px 0;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  outline: none;
 }

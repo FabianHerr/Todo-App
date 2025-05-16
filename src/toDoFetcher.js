@@ -1,41 +1,41 @@
 import ToDo from './todo.js';
 import Project from './projects.js';
 import Pmanager from './projectManager.js'
+import renderMainSpace from './mainSpace.js';
 
 // Functionality, adding new project to side bar
 function addNewToDo(){
     let project = Pmanager.getCurrentProject(); // get current project user is on.
     const adderDiv = document.getElementById("TAdder-form");
-    const form = document.createElement('form');
     const name = document.createElement('input');
-    const desc = document.createElement('input');
-    const dueDate = document.createElement('input');
-    form.method = 'post';
     name.type = 'text';
     name.placeholder = "New Task";
     name.id = 'todo-name';
-    desc.type = 'text';
-    desc.placeholder = "Description of the task...";
-    desc.id = 'todo-description';
-    dueDate.type = 'date';
-    dueDate.id = 'due-date';
-    form.appendChild(name);
-    form.appendChild(desc);
-    form.appendChild(dueDate);
-    adderDiv.appendChild(form);
+    adderDiv.innerHTML = '';
+    adderDiv.appendChild(name);
+    name.focus();
 
-    form.onsubmit = (e) => {
-        e.preventDefault();
-        let todoName = name.value;
-        let todoDesc = desc.value;
-        let todoDD = dueDate.value;
+    // Makes sure the UI is back to normal when clicking outside the input box
+    function handleOutsideClick(event){
+        if(event.target != name){ 
+            adderDiv.innerHTML = 'New Task';
+            document.removeEventListener('click', handleOutsideClick);
+        }
+    }
 
-        if (todoName === '') todoName = 'New Task';
-        const todo = new ToDo(todoName, todoDesc, todoDD);
-        project.addTodo(todo);
-        Pmanager.addTodoToAll(todo);
-        form.reset();  
-    };
+    setTimeout(()=>{document.addEventListener('click',handleOutsideClick)},0);
+
+
+    name.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' && name.value != '') {
+            e.preventDefault();
+            const todoName = name.value;
+            const newTodo = new ToDo(todoName);
+            project.addTodo(newTodo);
+            name.value = '';
+            renderMainSpace();
+        }
+    });
 }
 
 export default addNewToDo;

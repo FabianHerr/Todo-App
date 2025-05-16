@@ -8,23 +8,30 @@ function addNewProject(){
     const input = document.createElement('input');
     input.type = 'text';
     input.placeholder = 'New Project';
-    input.style.border = 'none';
-    input.style.background = 'transparent';
-    input.style.color = 'inherit';
-    input.style.font = 'inherit';
-    input.style.width = '100%';
-    input.style.outline = 'none';
 
     PAdder_form.innerHTML = '';
     PAdder_form.appendChild(input);
     input.focus();
 
+    // Makes sure the UI is back to normal when clicking outside the input box
+    function handleOutsideClick(event){
+        if(event.target != input){ 
+            PAdder_form.innerHTML = 'New Project';
+            document.removeEventListener('click', handleOutsideClick);
+        }
+    }
+
+    setTimeout(()=>{document.addEventListener('click',handleOutsideClick)},0);
+
+
     input.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') {
+        if (e.key === 'Enter' && input.value != '') {
             e.preventDefault();
-            const projectName = input.value || 'New Project';
+            const projectName = input.value ;
             Pmanager.addProject(projectName);
+            input.value = '';
             renderSideBar();
+            
         }
     });
 }

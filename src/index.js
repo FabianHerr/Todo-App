@@ -19,10 +19,10 @@ projectAdder.addEventListener('click', () => {
 // New to do in main space feature
 const todoAdder = document.getElementById('ToDoAdder');
 const TAdder_form = document.getElementById('TAdder-form');
-
 todoAdder.addEventListener('click', ()=>{
     TAdder_form.innerHTML = '';
     addNewToDo();
-    renderMainSpace();
 })
+
+
 
