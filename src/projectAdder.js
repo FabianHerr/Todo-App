@@ -28,7 +28,7 @@ function addNewProject(){
         if (e.key === 'Enter' && input.value != '') {
             e.preventDefault();
             const projectName = input.value ;
-            Pmanager.addProject(projectName);
+            Pmanager.createAddProject(projectName);
             input.value = '';
             renderSideBar();
             

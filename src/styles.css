@@ -1,4 +1,3 @@
-
 /* App Layout */
 
 html,body{
@@ -110,4 +109,27 @@ input[type="text"] {
   font: inherit;
   width: 100%;
   outline: none;
+}
+
+.toDo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.todo-checkbox {
+  width: 16px;
+  height: 16px;
+}
+
+.remove-button {
+  background-color: transparent;
+  border: none;
+  color: #d62828;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.remove-button:hover {
+  color: #a71d2a;
 }

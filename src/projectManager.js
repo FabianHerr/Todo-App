@@ -1,19 +1,24 @@
 import Project from './projects';
 
 class ProjectManager{
-    allTodos = new Project('All');
+    allProjects = new Project('All') // All todos from every project
+    allTodos = new Project('AllTodos');
     projects = [];
     currentProject = this.allTodos;
 
     addTodoToAll(todo){
-        this.allTodos.addTodo(todo);
+        this.allProjects.addTodo(todo);
+    }
+
+    getAllProjects(){
+        return this.allProjects;
     }
 
     getAllTodos(){
         return this.allTodos;
     }
 
-    addProject(name){
+    createAddProject(name){
         const project = new Project(name);
         this.projects.push(project);
     }
@@ -34,6 +39,8 @@ class ProjectManager{
 }
 
 const Pmanager = new ProjectManager();
+const allProjects = Pmanager.getAllProjects();
+Pmanager.getProjects().push(allProjects);
 
 export default Pmanager;
 

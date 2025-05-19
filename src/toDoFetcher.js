@@ -5,7 +5,8 @@ import renderMainSpace from './mainSpace.js';
 
 // Functionality, adding new project to side bar
 function addNewToDo(){
-    let project = Pmanager.getCurrentProject(); // get current project user is on.
+    const project = Pmanager.getCurrentProject(); // get current project user is on.
+    const allProjects = Pmanager.getAllProjects();
     const adderDiv = document.getElementById("TAdder-form");
     const name = document.createElement('input');
     name.type = 'text';
@@ -31,6 +32,7 @@ function addNewToDo(){
             e.preventDefault();
             const todoName = name.value;
             const newTodo = new ToDo(todoName);
+            allProjects.addTodo(newTodo);
             project.addTodo(newTodo);
             name.value = '';
             renderMainSpace();
