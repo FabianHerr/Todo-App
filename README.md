@@ -2,7 +2,7 @@
 
 A modern, clean todo application built with vanilla JavaScript that helps you organize your tasks into projects and keeps everything saved locally in your browser.
 
-## 🚀 [Live Demo](https://yourusername.github.io/todo-app)
+## 🚀 [Live Demo](https://fabianherr.github.io/Todo-App/)
 
 ## ✨ Features
 
