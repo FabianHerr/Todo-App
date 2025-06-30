@@ -12,20 +12,32 @@ body {
   flex-direction: column;
 }
 
+#ToDoxx{
+  padding-left: 5vw;
+  font-size: 3.1vw;
+  margin-bottom: 1vw;
+}
+
 #content{
   display: flex;
   height: 100vh;
 }
 
 .sideBar {
-  width: 250px;
+  width: 20vw;
+  
   background-color: #003049;
   color: #fff;
   padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 15px;
-  flex: 1;
+}
+
+#allProjects{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .sideBar #ProjectAdder {
@@ -46,16 +58,19 @@ body {
 }
 
 .sideBar .project {
-  background-color: #d62828;
+  background-color: #d37904;
   color: white;
   padding: 10px;
   border-radius: 5px;
   cursor: pointer;
   font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .sideBar .project:hover {
-  background-color: #b81d1d;
+  background-color: #ca6501;
 }
 
 #mainSpace {

@@ -3,10 +3,9 @@ import Project from './projects.js';
 import Pmanager from './projectManager.js'
 import renderMainSpace from './mainSpace.js';
 
-// Functionality, adding new project to side bar
+// Functionality, adding new todo to current project
 function addNewToDo(){
     const project = Pmanager.getCurrentProject(); // get current project user is on.
-    const allProjects = Pmanager.getAllProjects();
     const adderDiv = document.getElementById("TAdder-form");
     const name = document.createElement('input');
     name.type = 'text';
@@ -18,7 +17,7 @@ function addNewToDo(){
 
     // Makes sure the UI is back to normal when clicking outside the input box
     function handleOutsideClick(event){
-        if(event.target != name){ 
+        if(event.target !== name){ 
             adderDiv.innerHTML = 'New Task';
             document.removeEventListener('click', handleOutsideClick);
         }
@@ -26,15 +25,21 @@ function addNewToDo(){
 
     setTimeout(()=>{document.addEventListener('click',handleOutsideClick)},0);
 
-
     name.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' && name.value != '') {
+        if (e.key === 'Enter' && name.value.trim() !== '') {
             e.preventDefault();
-            const todoName = name.value;
+            const todoName = name.value.trim();
+            
+            // Create new todo (simplified - no description or due date)
             const newTodo = new ToDo(todoName);
-            allProjects.addTodo(newTodo);
-            project.addTodo(newTodo);
+            newTodo.setProject(project);
+            
+            // Use the project manager's addTodo method which handles storage
+            Pmanager.addTodo(newTodo, project);
+            
             name.value = '';
+            adderDiv.innerHTML = 'New Task';
+            document.removeEventListener('click', handleOutsideClick);
             renderMainSpace();
         }
     });

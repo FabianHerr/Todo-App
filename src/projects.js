@@ -5,6 +5,7 @@ class Project{
 
     constructor(name){
         this.name = name;
+        this.selected = false;
     }
 
     getName(){
@@ -21,6 +22,14 @@ class Project{
 
     setName(newName){
         this.name = newName;
+    }
+
+    select(){
+        this.selected = true;
+    }
+
+    unselect(){
+        this.selected = false;
     }
 
 }
